@@ -35,3 +35,7 @@ python3 -m http.server 8000
 ```
 
 Then open `http://localhost:8000/`.
+
+## photos & videos
+
+https://drive.google.com/drive/u/1/folders/1AfR62JqnCPMy463S75JzRaY1EfB--n7H
