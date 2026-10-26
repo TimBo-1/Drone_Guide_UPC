@@ -7,14 +7,21 @@
   <p class="lead">The traps that cost us (and other teams) the most time — and exactly how we got past them.</p>
 
   <div class="grid-2" style="margin-top:6px">
-    <div class="card"><h4 style="font-size:17px">Printed motor arrows were wrong</h4><p style="font-size:14.5px;color:var(--ink-soft);margin:.5rem 0 0">The spin arrows printed on some motors contradicted the correct direction. <b>Fix:</b> ignore the print — derive direction from propeller shape and the position diagram (Fig 3.7).</p></div>
     <div class="card"><h4 style="font-size:17px">A motor spun the wrong way</h4><p style="font-size:14.5px;color:var(--ink-soft);margin:.5rem 0 0">Found during the channel test. <b>Fix:</b> swap any two of the three ESC-to-motor wires — which meant unscrewing the arm and disconnecting the LED.</p></div>
     <div class="card"><h4 style="font-size:17px">Pitch felt inverted</h4><p style="font-size:14.5px;color:var(--ink-soft);margin:.5rem 0 0">Right stick forward → drone backwards. <b>Fix:</b> invert the pitch channel on the transmitter.</p></div>
     <div class="card"><h4 style="font-size:17px">Odd autopilot behaviour after flashing</h4><p style="font-size:14.5px;color:var(--ink-soft);margin:.5rem 0 0">Leftover parameters from previous users. <b>Fix:</b> reset all parameters to default right after flashing firmware, then re-apply ours.</p></div>
     <div class="card"><h4 style="font-size:17px">US vs EU stick mode</h4><p style="font-size:14.5px;color:var(--ink-soft);margin:.5rem 0 0">Default stick mapping differed from what we expected. <b>Fix:</b> verify and set the stick mode before building the model (Fig 4.6).</p></div>
-    <div class="card"><h4 style="font-size:17px">Param file "not found"</h4><p style="font-size:14.5px;color:var(--ink-soft);margin:.5rem 0 0">Mission Planner couldn't locate the recommended params. <b>Fix:</b> load <code>Hexsoon-edu450.param</code> from our repo with <span class="kbd">Load from file</span>.</p></div>
-    <div class="card"><h4 style="font-size:17px">Peripherals not ready at boot</h4><p style="font-size:14.5px;color:var(--ink-soft);margin:.5rem 0 0">Occasional init glitches. <b>Fix:</b> set <code>BRD_BOOT_DELAY = 3000</code> to delay startup 3 s so peripherals initialise first.</p></div>
     <div class="card"><h4 style="font-size:17px">Telemetry link slower than USB</h4><p style="font-size:14.5px;color:var(--ink-soft);margin:.5rem 0 0">Expected behaviour, not a fault. <b>Approach:</b> use USB for heavy config, telemetry radio for in-field checks and flight.</p></div>
   </div>
-  <div class="notebox"><b>Our own difficulties (placeholder).</b> Add anything specific to our build that isn't in the generic guide — fit issues, wiring surprises, calibration retries. <span class="todo">Team to-do.</span></div>
+  <div class="notebox"><b>Our own difficulties.</b> <p style="margin:0 0 10px 0;font-size:14.5px;color:var(--ink-soft)"><h4 style="font-size:17px">Motor/ESC inconsistency. </h4>
+    During individual motor testing, one motor produced a noticeably different sound from the other three. Its response to the minimum throttle threshold was also different: we had to increase the test threshold for the motor to start normally.
+
+After replacing the motor, the same behavior appeared again, so we currently suspect that the issue may be related to the ESC rather than the motor itself.
+
+Interestingly, the difference did not appear to affect the UAV's normal flight performance during the flight test. One possible explanation is that the flight controller automatically compensates for small differences in motor output, although this still needs further investigation.</p>
+  <p style="margin:0 0 10px 0;font-size:14.5px;color:var(--ink-soft)"><h4 style="font-size:17px">Missing Parameters When Loading the Param File </h4>
+
+When loading the recommended parameter file, Mission Planner reported that some parameters were missing or could not be recognized.
+
+<b>Fix: </b>We checked the latest parameter names and their corresponding units, updated the configuration file accordingly, and then loaded the modified file again.</p></div>
 </section>
