@@ -13,15 +13,60 @@
     <div class="card"><h4 style="font-size:17px">US vs EU stick mode</h4><p style="font-size:14.5px;color:var(--ink-soft);margin:.5rem 0 0">Default stick mapping differed from what we expected. <b>Fix:</b> verify and set the stick mode before building the model (Fig 4.6).</p></div>
     <div class="card"><h4 style="font-size:17px">Telemetry link slower than USB</h4><p style="font-size:14.5px;color:var(--ink-soft);margin:.5rem 0 0">Expected behaviour, not a fault. <b>Approach:</b> use USB for heavy config, telemetry radio for in-field checks and flight.</p></div>
   </div>
-  <div class="notebox"><b>Our own difficulties.</b> <p style="margin:0 0 10px 0;font-size:14.5px;color:var(--ink-soft)"><h4 style="font-size:17px">Motor/ESC inconsistency. </h4>
-    During individual motor testing, one motor produced a noticeably different sound from the other three. Its response to the minimum throttle threshold was also different: we had to increase the test threshold for the motor to start normally.
+  <div style="margin-top:18px">
+  <div class="notebox" style="margin-bottom:12px">
+    <b>Our own difficulties</b>
+    <span style="color:var(--ink-soft);font-size:14px">
+      Problems we encountered during our own build and how we addressed them.
+    </span>
+  </div>
 
-After replacing the motor, the same behavior appeared again, so we currently suspect that the issue may be related to the ESC rather than the motor itself.
+  <div class="grid-2">
 
-Interestingly, the difference did not appear to affect the UAV's normal flight performance during the flight test. One possible explanation is that the flight controller automatically compensates for small differences in motor output, although this still needs further investigation.</p>
-  <p style="margin:0 0 10px 0;font-size:14.5px;color:var(--ink-soft)"><h4 style="font-size:17px">Missing Parameters When Loading the Param File </h4>
+    <!-- Motor / ESC -->
+    <div class="card">
+      <h4 style="font-size:17px;margin:0 0 8px">
+        Motor/ESC inconsistency
+      </h4>
 
-When loading the recommended parameter file, Mission Planner reported that some parameters were missing or could not be recognized.
+      <p style="font-size:14.5px;color:var(--ink-soft);margin:0 0 10px">
+        During individual motor testing, one motor produced a noticeably
+        different sound from the other three and required a higher minimum
+        throttle threshold to start normally.
+      </p>
 
-<b>Fix: </b>We checked the latest parameter names and their corresponding units, updated the configuration file accordingly, and then loaded the modified file again.</p></div>
-</section>
+      <p style="font-size:14.5px;color:var(--ink-soft);margin:0 0 10px">
+        After replacing the motor, the same behaviour appeared again,
+        so we currently suspect the <b>ESC</b> rather than the motor itself.
+      </p>
+
+      <div style="font-size:14px;color:var(--ink-soft);
+                  padding-top:8px;border-top:1px solid rgba(255,255,255,.12)">
+        <b>Observation:</b>
+        The difference did not appear to affect normal flight performance.
+        The flight controller may be compensating for small differences in
+        motor output, but this requires further investigation.
+      </div>
+    </div>
+
+    <!-- Missing parameters -->
+    <div class="card">
+      <h4 style="font-size:17px;margin:0 0 8px">
+        Missing parameters when loading the param file
+      </h4>
+
+      <p style="font-size:14.5px;color:var(--ink-soft);margin:0 0 10px">
+        When loading the recommended parameter file, Mission Planner
+        reported that some parameters were missing or could not be recognized.
+      </p>
+
+      <div style="font-size:14px;color:var(--ink-soft);
+                  padding-top:8px;border-top:1px solid rgba(255,255,255,.12)">
+        <b>Fix:</b>
+        We checked the latest parameter names and their corresponding units,
+        updated the configuration file, and loaded it again.
+      </div>
+    </div>
+
+  </div>
+</div>
